@@ -86,13 +86,25 @@ def test_daily_max_integers(test, expected):
                 [[0, 0.67, 1], [0.67, 0.83, 1], [0.78, 0.89, 1]],
                 ValueError,
         ),
+        (
+                'hello',
+                None,
+                TypeError,
+        ),
+        (
+                3,
+                None,
+                TypeError,
+        ),
     ])
 def test_patient_normalise(test, expected, raises):
     """Test normalisation works for arrays of one and positive integers.
        Assumption that test accuracy of two decimal places is sufficient."""
     from inflammation.models import patient_normalise
+    if isinstance(test, list):
+        test = np.array(test)
     if raises:
         with pytest.raises(raises):
-            npt.assert_almost_equal(patient_normalise(np.array(test)), np.array(expected), decimal=2)
+            npt.assert_almost_equal(patient_normalise(test), np.array(expected), decimal=2)
     else:
-        npt.assert_almost_equal(patient_normalise(np.array(test)), np.array(expected), decimal=2)
+        npt.assert_almost_equal(patient_normalise(test), np.array(expected), decimal=2)
