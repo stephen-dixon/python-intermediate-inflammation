@@ -26,3 +26,14 @@ The following optional packages are required to run Inflam's unit tests:
 - [pytest-cov](https://pypi.org/project/pytest-cov/) - Adds test coverage stats to unit testing
 
 
+# Basic usage
+
+```
+python3 inflammation-analysis.py data/inflammation-01.csv
+```
+
+# Licence
+
+MIT License
+
+Copyright (c) 2022 stephen-dixon
