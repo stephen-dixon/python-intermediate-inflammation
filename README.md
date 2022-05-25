@@ -26,6 +26,11 @@ The following optional packages are required to run Inflam's unit tests:
 - [pytest-cov](https://pypi.org/project/pytest-cov/) - Adds test coverage stats to unit testing
 
 
+## Installation
+- Clone the repo ``git clone repo``
+- Install via ``pip install -e .``
+- Check everything runs by running ``pytest`` in the root directory
+
 # Basic usage
 
 ```

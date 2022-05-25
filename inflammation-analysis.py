@@ -37,7 +37,9 @@ def main(args):
 
         if args.save:
             patient_data = inflammation_data[args.patient]
-            serializers.PatientJSONSerializer.save(patient_data, args.filename)
+            observations = [models.Observation(day, value) for day, value in enumerate(patient_data)]
+            patient = models.Patient('UNKNOWN', observations)
+            serializers.PatientJSONSerializer.save([patient], args.filename)
             print("patient %s  data saved to file %s" % (args.patient, args.filename))
 
 
