@@ -3,7 +3,7 @@
 
 import argparse
 
-from inflammation import models, views
+from inflammation import models, views, serializers
 
 
 def main(args):
@@ -33,9 +33,12 @@ def main(args):
             patient_data = inflammation_data[args.patient]
             observations = [models.Observation(day, value) for day, value in enumerate(patient_data)]
             patient = models.Patient('UNKNOWN', observations)
-
             views.display_patient_record(patient)
 
+        if args.save:
+            patient_data = inflammation_data[args.patient]
+            serializers.PatientJSONSerializer.save(patient_data, args.filename)
+            print("patient %s  data saved to file %s" % (args.patient, args.filename))
 
 
 
@@ -54,6 +57,9 @@ if __name__ == "__main__":
         type=int,
         default=0,
         help='Which patient should be displayed?')
+
+    parser.add_argument('--save', action='store_true')
+    parser.add_argument("--filename", type=str)
 
     args = parser.parse_args()
     main(args)
