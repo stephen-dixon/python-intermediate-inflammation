@@ -33,7 +33,16 @@ The following optional packages are required to run Inflam's unit tests:
 git clone git@github.com:stephen-dixon/python-intermediate-inflammation.git
 ```
 
-- Install via 
+- Create and activate a new virtual environment
+
+```
+cd python-intermediate-inflammation
+python3 -m venv venv
+source venv/bin/activate
+
+```
+
+- Install 
 
 ```
 pip install -r requirements.txt
