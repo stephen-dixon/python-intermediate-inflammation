@@ -1,6 +1,7 @@
 from inflammation import models
 import json
 
+
 class Serializer:
     @classmethod
     def serialize(cls, instances):

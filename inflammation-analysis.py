@@ -43,7 +43,6 @@ def main(args):
                 print("patient %s  data saved to file %s" % (args.patient, args.filename))
 
 
-
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='A basic patient inflammation data management system')
     parser.add_argument('infiles', nargs='+',
