@@ -37,6 +37,9 @@ The following optional packages are required to run Inflam's unit tests:
 python3 inflammation-analysis.py data/inflammation-01.csv
 ```
 
+# Contributing
+To contribute check-out a new branch against an issue and raise a pull request.
+
 # Licence
 
 MIT License
