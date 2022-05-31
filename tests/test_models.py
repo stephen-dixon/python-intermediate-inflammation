@@ -87,6 +87,11 @@ def test_daily_max_integers(test, expected):
                 ValueError,
         ),
         (
+                [[[1, 2, 3], [4, 5, 6], [7, 8, 9]]],
+                [[0, 0.67, 1], [0.67, 0.83, 1], [0.78, 0.89, 1]],
+                ValueError,
+        ),
+        (
                 'hello',
                 None,
                 TypeError,
