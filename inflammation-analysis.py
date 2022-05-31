@@ -35,12 +35,12 @@ def main(args):
             patient = models.Patient('UNKNOWN', observations)
             views.display_patient_record(patient)
 
-        if args.save:
-            patient_data = inflammation_data[args.patient]
-            observations = [models.Observation(day, value) for day, value in enumerate(patient_data)]
-            patient = models.Patient('UNKNOWN', observations)
-            serializers.PatientJSONSerializer.save([patient], args.filename)
-            print("patient %s  data saved to file %s" % (args.patient, args.filename))
+            if args.save:
+                patient_data = inflammation_data[args.patient]
+                observations = [models.Observation(day, value) for day, value in enumerate(patient_data)]
+                patient = models.Patient('UNKNOWN', observations)
+                serializers.PatientJSONSerializer.save([patient], args.filename)
+                print("patient %s  data saved to file %s" % (args.patient, args.filename))
 
 
 
@@ -52,16 +52,17 @@ if __name__ == "__main__":
         '--view',
         default='visualize',
         choices=['visualize', 'record'],
-        help='Which view should be used?')
+        help='Switch for visualisation option. "Visualize" plots results graphically, "record" prints the data for '
+             'a single patient, as specified by the --patient option')
 
     parser.add_argument(
         '--patient',
         type=int,
         default=0,
-        help='Which patient should be displayed?')
+        help='Integer index of the patient record to visualise (used in conjuction with --visualize). Default is 0.')
 
-    parser.add_argument('--save', action='store_true')
-    parser.add_argument("--filename", type=str)
+    parser.add_argument('--output', type=str, help='Filename to save the patient data specified from --visualize'
+                                                   ' and --patient options. Data is output in JSON format')
 
     args = parser.parse_args()
     main(args)
