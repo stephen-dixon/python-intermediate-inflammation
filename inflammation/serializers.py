@@ -1,6 +1,7 @@
 from inflammation import models
 import json
 
+
 class Serializer:
     @classmethod
     def serialize(cls, instances):
@@ -24,10 +25,13 @@ class ObservationSerializer(Serializer):
 
     @classmethod
     def serialize(cls, instances):
-        return [{
-            'day': instance.day,
-            'value': instance.value,
-        } for instance in instances]
+        return [
+            {
+                "day": instance.day,
+                "value": instance.value,
+            }
+            for instance in instances
+        ]
 
     @classmethod
     def deserialize(cls, data):
@@ -39,27 +43,31 @@ class PatientSerializer(Serializer):
 
     @classmethod
     def serialize(cls, instances):
-        return [{
-            'name': instance.name,
-            'observations': ObservationSerializer.serialize(instance.observations),
-        } for instance in instances]
+        return [
+            {
+                "name": instance.name,
+                "observations": ObservationSerializer.serialize(instance.observations),
+            }
+            for instance in instances
+        ]
 
     @classmethod
     def deserialize(cls, data):
         instances = []
 
         for item in data:
-            item['observations'] = ObservationSerializer.deserialize(item.pop('observations'))
+            item["observations"] = ObservationSerializer.deserialize(
+                item.pop("observations")
+            )
             instances.append(cls.model(**item))
 
         return instances
 
 
 class PatientJSONSerializer(PatientSerializer):
-
     @classmethod
     def save(cls, instances, path):
-        with open(path, 'w') as jsonfile:
+        with open(path, "w") as jsonfile:
             json.dump(cls.serialize(instances), jsonfile)
 
     @classmethod

@@ -1,14 +1,13 @@
 """Module containing code for plotting inflammation data."""
 
 from matplotlib import pyplot as plt
-import numpy as np
 from inflammation import serializers
 
 
 def visualize(data_dict):
     """Display plots of basic statistical properties of the inflammation data.
 
-    :param data_dict: Dictionary of name -> data to plot
+    param data_dict: Dictionary of name -> data to plot
     """
     # TODO(lesson-design) Extend to allow saving figure to file
 
