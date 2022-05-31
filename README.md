@@ -1,4 +1,4 @@
-#Inflam
+# Inflam
 
 ![Continuous Integration build in GitHub Actions](https://github.com/stephen-dixon/python-intermediate-inflammation/workflows/CI/badge.svg?branch=main)
 
@@ -26,7 +26,7 @@ The following optional packages are required to run Inflam's unit tests:
 - [pytest-cov](https://pypi.org/project/pytest-cov/) - Adds test coverage stats to unit testing
 
 
-## Installation
+# Installation
 - Clone the repo ``git clone repo``
 - Install via ``pip install -e .``
 - Check everything runs by running ``pytest`` in the root directory
