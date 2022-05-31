@@ -3,13 +3,13 @@ from inflammation.models import Patient, Doctor
 
 
 def test_create_patient():
-    name = 'Alice'
+    name = "Alice"
     p = Patient(name=name)
     assert p.name == name
 
 
 def test_add_patient_observation():
-    name = 'Alice'
+    name = "Alice"
     p = Patient(name=name)
     p.add_observation(5)
     assert len(p.observations) == 1
@@ -19,7 +19,7 @@ def test_add_patient_observation():
 
 
 def test_add_patient_observation_with_day():
-    name = 'Alice'
+    name = "Alice"
     p = Patient(name=name)
     days = [0, 1, 2]
     values = [5, 4, 3]
@@ -32,15 +32,15 @@ def test_add_patient_observation_with_day():
 
 
 def test_create_doctor():
-    name = 'Dr. Alice'
+    name = "Dr. Alice"
     d = Doctor(name=name)
     assert d.name == name
 
 
 def test_add_patients_to_doctor():
-    name = 'Dr. House'
+    name = "Dr. House"
     d = Doctor(name=name)
-    name = 'Alice'
+    name = "Alice"
     p = Patient(name=name)
     d.add_patient(p)
     assert len(d.patients) == 1
@@ -50,9 +50,9 @@ def test_add_patients_to_doctor():
 
 
 def test_average_observations_over_patients():
-    name = 'Dr. House'
+    name = "Dr. House"
     d = Doctor(name=name)
-    patient_names = ['alice', 'bob', 'sam']
+    patient_names = ["alice", "bob", "sam"]
     days = [0, 1, 2]
     values = [5, 4, 3]
     for name in patient_names:
@@ -65,4 +65,3 @@ def test_average_observations_over_patients():
     for i, obs in enumerate(avg_obs):
         assert obs.day == days[i]
         assert obs.value == values[i]
-
