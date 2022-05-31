@@ -27,7 +27,12 @@ The following optional packages are required to run Inflam's unit tests:
 
 
 # Installation
-- Clone the repo ``git clone git@github.com:stephen-dixon/python-intermediate-inflammation.git``
+- Clone the repo 
+
+```
+git clone git@github.com:stephen-dixon/python-intermediate-inflammation.git
+```
+
 - Install via 
 
 ```
