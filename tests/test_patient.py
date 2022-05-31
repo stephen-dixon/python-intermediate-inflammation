@@ -8,7 +8,7 @@ def test_create_patient():
     assert p.name == name
 
 
-def test_add_patient_obervation():
+def test_add_patient_observation():
     name = 'Alice'
     p = Patient(name=name)
     p.add_observation(5)
@@ -18,7 +18,7 @@ def test_add_patient_obervation():
     assert obs.value == 5
 
 
-def test_add_patient_obervation_with_day():
+def test_add_patient_observation_with_day():
     name = 'Alice'
     p = Patient(name=name)
     days = [0, 1, 2]
@@ -65,6 +65,4 @@ def test_average_observations_over_patients():
     for i, obs in enumerate(avg_obs):
         assert obs.day == days[i]
         assert obs.value == values[i]
-
-
 
